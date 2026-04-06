@@ -2,6 +2,9 @@
 
 Landing page institucional e comercial para a Maria Paulino Atelier, com foco em perfumes, bolsas autorais em crochê, tapetes e peças personalizadas.
 
+<img width="1641" height="879" alt="image" src="https://github.com/user-attachments/assets/6292e824-5e82-4fce-90e2-0699844bbbe6" />
+
+
 ## Visão Geral
 
 O projeto foi pensado para conversão no mobile, com visual elegante, paleta inspirada na identidade da marca e CTA direto para WhatsApp.
