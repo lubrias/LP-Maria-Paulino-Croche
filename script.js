@@ -16,6 +16,51 @@ const observer = new IntersectionObserver(
 
 revealElements.forEach((element) => observer.observe(element));
 
+// Carousel functionality
+const carousel = document.querySelector('.carousel');
+if (carousel) {
+	const slides = carousel.querySelectorAll('.carousel-slide');
+	const dots = carousel.querySelectorAll('.carousel-dot');
+	const prevBtn = carousel.querySelector('.carousel-btn--prev');
+	const nextBtn = carousel.querySelector('.carousel-btn--next');
+	let currentIndex = 0;
+
+	function showSlide(index) {
+		slides.forEach((slide, i) => {
+			slide.classList.toggle('active', i === index);
+		});
+		dots.forEach((dot, i) => {
+			dot.classList.toggle('active', i === index);
+		});
+	}
+
+	function nextSlide() {
+		currentIndex = (currentIndex + 1) % slides.length;
+		showSlide(currentIndex);
+	}
+
+	function prevSlide() {
+		currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+		showSlide(currentIndex);
+	}
+
+	prevBtn.addEventListener('click', prevSlide);
+	nextBtn.addEventListener('click', nextSlide);
+
+	dots.forEach((dot) => {
+		dot.addEventListener('click', (e) => {
+			currentIndex = parseInt(e.target.dataset.index);
+			showSlide(currentIndex);
+		});
+	});
+
+	// Auto-advance carousel every 5 seconds
+	setInterval(nextSlide, 5000);
+
+	// Show first slide on load
+	showSlide(0);
+}
+
 const form = document.querySelector('.contact-form');
 
 if (form) {
